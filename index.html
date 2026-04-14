@@ -29,9 +29,7 @@
             <div id="status-badge" class="status-badge">
                 <span id="status-text">Synchronizing with Oven...</span>
             </div>
-            
             <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo">
-            
             <div class="hero-text-wrap">
                 <h1>Handcrafted <br><em>with</em> Love.</h1>
                 <p id="hero-subtext">Sourdough fermented for 24 hours, baked fresh for your morning in Okotoks.</p>
@@ -66,7 +64,7 @@
                         </div>
                         <p class="product-description">Our flagship loaf. A deep mahogany crust with a light, wild crumb. Naturally leavened and highly digestible.</p>
                         <div class="button-set">
-                            <a class="btn-buy" href="YOUR_GUMROAD_LINK">Purchase Online</a>
+                            <a class="btn-buy" href="#">Purchase Online</a>
                             <button class="btn-reserve" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
                         </div>
                     </div>
@@ -82,14 +80,14 @@
                 <p>Real Food. Made with Love.</p>
             </div>
             
-            <div class="footer-nav">
+            <div class="footer-column">
                 <h4>Explore</h4>
                 <a href="#products">The Bakery Case</a>
                 <a href="about.html">Our Story & Benefits</a>
                 <a href="#orderModal" onclick="openOrderModal('Special Order')">Special Requests</a>
             </div>
 
-            <div class="footer-contact">
+            <div class="footer-column">
                 <h4>Connect</h4>
                 <p>Okotoks, Alberta</p>
                 <a href="mailto:hello@orangeblossom.ca">hello@orangeblossom.ca</a>
@@ -108,11 +106,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Your Reservation</h2>
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <form action="https://formspree.io/f/YOUR_ID" method="POST">
                 <input type="hidden" name="Product" id="hiddenProduct">
                 <input type="text" name="Name" placeholder="Your Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
-                <label style="display:block; margin-top:15px; font-weight:600; font-size: 0.7rem; letter-spacing: 1px;">PICKUP DATE</label>
+                <label style="display:block; margin-top:15px; font-weight:600; font-size: 0.7rem;">PICKUP DATE</label>
                 <input type="date" id="orderDate" name="PickupDate" required>
                 <button type="submit" class="btn-main" style="width:100%; margin-top:20px; border:none; cursor:pointer;">Confirm Request</button>
             </form>
@@ -125,7 +123,7 @@
 
         function updateBakeryStatus() {
             const now = new Date();
-            const cutoff = 10; // 10:00 AM
+            const cutoff = 10; 
             const statusBadge = document.getElementById('status-badge');
             const statusText = document.getElementById('status-text');
             const heroSubtext = document.getElementById('hero-subtext');
