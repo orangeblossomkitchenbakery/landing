@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orange Blossom Kitchen & Bakery | Handcrafted Sourdough</title>
+    <title>Orange Blossom Kitchen & Bakery | Fresh Sourdough</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -15,68 +15,54 @@
         <img src="assets/logo-banner.png" alt="Orange Blossom Bakery" class="nav-logo">
         <div class="nav-links">
             <a href="#products">Bakery Case</a>
-            <a href="#orderForm">Order Now</a>
+            <a href="#orderModal" onclick="openOrderModal('General Inquiry')">Contact</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-overlay">
+            <div id="status-badge" class="status-badge">
+                <span class="dot"></span> <span id="status-text">Checking Bakery...</span>
+            </div>
+
             <img src="assets/logo-round.png" alt="Orange Blossom Logo" class="hero-logo">
             <div class="hero-content">
-                <h1>Real Food. Made with Love.</h1>
-                <p>Artisanal sourdough and treats, baked to order in Okotoks.</p>
-                <a href="#products" class="btn-primary">View Today's Bake</a>
+                <h1>Fresh Bread, Tomorrow.</h1>
+                <p id="hero-subtext">Artisanal sourdough baked to order in Okotoks.</p>
+                <a href="#products" class="btn-primary">Reserve Your Loaf</a>
             </div>
         </div>
     </header>
 
     <section class="process">
-        <h2>The 48-Hour Promise</h2>
+        <h2>The 24-Hour Cycle</h2>
         <div class="steps-container">
             <div class="step-card">
                 <span class="step-num">01</span>
-                <h3>The Request</h3>
-                <p>Order by 6 PM to start the process.</p>
+                <h3>Order by 10AM</h3>
+                <p>Secure your bake before the daily prep begins.</p>
             </div>
             <div class="step-card">
                 <span class="step-num">02</span>
-                <h3>The Ferment</h3>
-                <p>24 hours of slow, natural rising for peak flavor.</p>
+                <h3>Overnight Rise</h3>
+                <p>24 hours of slow fermentation for gut health.</p>
             </div>
             <div class="step-card">
                 <span class="step-num">03</span>
-                <h3>The Bake</h3>
-                <p>Freshly baked on your chosen delivery day.</p>
+                <h3>Dawn Bake</h3>
+                <p>Fresh from the oven to your table the next day.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="products">
-        <h2>From the Oven</h2>
         <div class="product-grid">
             <div class="product-card">
                 <div class="product-img" style="background-image: url('assets/product-sourdough.jpg');"></div>
                 <div class="product-info">
                     <h3>Signature Sourdough</h3>
-                    <p>Mahogany crust with an airy, tangy crumb.</p>
+                    <p>Our classic artisan loaf. Real food, made with love.</p>
                     <span class="price">$10.00</span>
                     <div class="cta-stack">
-                        <a class="gumroad-button" href="#">Pay in Advance</a>
-                        <button class="btn-secondary" onclick="openModal('Signature Sourdough')">Reserve & Pay in Person</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Orange Blossom Kitchen & Bakery | Made with heart in Okotoks, Alberta</p>
-    </footer>
-
-    <script>
-        function openModal(item) {
-            alert("Requesting: " + item + ". (We'll connect your form here next!)");
-        }
-    </script>
-</body>
-</html>
+                        <a class="gumroad-button" href="https://gumroad.com/l/YOUR_LINK">Pay Now</a>
+                        <button class="btn-secondary" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
