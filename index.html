@@ -5,96 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orange Blossom Kitchen & Bakery | Handcrafted Sourdough</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="logo.png" alt="Orange Blossom Logo" class="main-logo">
+    <nav class="navbar">
+        <img src="assets/logo-banner.png" alt="Orange Blossom Bakery" class="nav-logo">
+        <div class="nav-links">
+            <a href="#products">Bakery Case</a>
+            <a href="#orderForm">Order Now</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <img src="assets/logo-round.png" alt="Orange Blossom Logo" class="hero-logo">
+            <div class="hero-content">
+                <h1>Real Food. Made with Love.</h1>
+                <p>Artisanal sourdough and treats, baked to order in Okotoks.</p>
+                <a href="#products" class="btn-primary">View Today's Bake</a>
             </div>
-        </nav>
-        <div class="hero-text">
-            <h1>Real Food. Made with Love.</h1>
-            <p>Sourdough bread and artisanal treats, fermented for 24 hours and baked to order in Okotoks.</p>
-            <a href="#products" class="btn">View Today's Bake</a>
         </div>
     </header>
 
     <section class="process">
         <h2>The 48-Hour Promise</h2>
-        <div class="steps">
-            <div class="step">
-                <span>01</span>
+        <div class="steps-container">
+            <div class="step-card">
+                <span class="step-num">01</span>
                 <h3>The Request</h3>
-                <p>Order by 6 PM today to start the cycle.</p>
+                <p>Order by 6 PM to start the process.</p>
             </div>
-            <div class="step">
-                <span>02</span>
+            <div class="step-card">
+                <span class="step-num">02</span>
                 <h3>The Ferment</h3>
-                <p>24 hours of slow, natural rising for gut health.</p>
+                <p>24 hours of slow, natural rising for peak flavor.</p>
             </div>
-            <div class="step">
-                <span>03</span>
+            <div class="step-card">
+                <span class="step-num">03</span>
                 <h3>The Bake</h3>
-                <p>Baked fresh on the morning of your delivery.</p>
+                <p>Freshly baked on your chosen delivery day.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="products">
-        <h2>Our Bakery Case</h2>
-        <div class="grid">
+        <h2>From the Oven</h2>
+        <div class="product-grid">
             <div class="product-card">
-                <div class="product-image" style="background-image: url('bread1.jpg');"></div>
-                <h3>Signature Sourdough Boule</h3>
-                <p>Our classic loaf with a crunchy crust and tangy, airy interior.</p>
-                <p class="price">$10.00</p>
-                <div class="button-group">
-                    <a class="gumroad-button" href="https://gumroad.com/l/YOUR_LINK_HERE">Pay Now</a>
-                    <button class="request-btn" onclick="openRequest('Signature Sourdough')">Request & Pay in Person</button>
+                <div class="product-img" style="background-image: url('assets/product-sourdough.jpg');"></div>
+                <div class="product-info">
+                    <h3>Signature Sourdough</h3>
+                    <p>Mahogany crust with an airy, tangy crumb.</p>
+                    <span class="price">$10.00</span>
+                    <div class="cta-stack">
+                        <a class="gumroad-button" href="#">Pay in Advance</a>
+                        <button class="btn-secondary" onclick="openModal('Signature Sourdough')">Reserve & Pay in Person</button>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
-    <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Reservation Request</h2>
-            <form id="orderForm">
-                <input type="hidden" id="selectedProduct" name="product">
-                <label>Name</label>
-                <input type="text" placeholder="Your Name" required>
-                <label>Pickup/Delivery Date (Min. 2 days notice)</label>
-                <input type="date" id="orderDate" required>
-                <p class="form-note">*Note: We need 48 hours to prepare your sourdough.</p>
-                <button type="submit" class="btn">Send Request</button>
-            </form>
-        </div>
-    </div>
-
     <footer>
-        <p>&copy; 2026 Orange Blossom Kitchen & Bakery | Okotoks, AB</p>
+        <p>&copy; 2026 Orange Blossom Kitchen & Bakery | Made with heart in Okotoks, Alberta</p>
     </footer>
 
     <script>
-        // Set minimum date to 2 days from now
-        const dateInput = document.getElementById('orderDate');
-        const today = new Date();
-        const minDate = new Date(today);
-        minDate.setDate(minDate.getDate() + 2);
-        dateInput.min = minDate.toISOString().split("T")[0];
-
-        function openRequest(product) {
-            document.getElementById('selectedProduct').value = product;
-            document.getElementById('requestModal').style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById('requestModal').style.display = "none";
+        function openModal(item) {
+            alert("Requesting: " + item + ". (We'll connect your form here next!)");
         }
     </script>
 </body>
