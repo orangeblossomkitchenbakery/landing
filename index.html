@@ -3,66 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orange Blossom Kitchen & Bakery | Fresh Sourdough</title>
+    <title>Orange Blossom Kitchen & Bakery</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
 
     <nav class="navbar">
-       <img src="assets/logo-banner.png" alt="Orange Blossom Bakery" class="nav-logo">
-        <div class="nav-links">
-            <a href="#products">Bakery Case</a>
-            <a href="#orderModal" onclick="openOrderModal('General Inquiry')">Contact</a>
+        <div class="nav-container">
+            <img src="assets/logo-banner.png" alt="Orange Blossom" class="nav-logo">
+            <div class="nav-links">
+                <a href="#products">The Bakery</a>
+                <a href="#orderModal" class="nav-cta" onclick="openOrderModal('General Request')">Reserve a Loaf</a>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-overlay">
+        <div class="hero-inner">
             <div id="status-badge" class="status-badge">
-                <span class="dot"></span> <span id="status-text">Checking Bakery...</span>
+                <span class="dot"></span> <span id="status-text">Checking oven...</span>
             </div>
-
-            <img src="assets/logo-round.png" alt="Orange Blossom Logo" class="hero-logo">
-            <div class="hero-content">
-                <h1>Fresh Bread, Tomorrow.</h1>
-                <p id="hero-subtext">Artisanal sourdough baked to order in Okotoks.</p>
-                <a href="#products" class="btn-primary">Reserve Your Loaf</a>
+            
+            <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo">
+            
+            <div class="hero-text-wrap">
+                <h1>Handcrafted <br><em>with</em> Patience.</h1>
+                <p id="hero-subtext">Sourdough fermented for 24 hours, baked fresh for your morning in Okotoks.</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn-main">View Today's Bake</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="process">
-        <h2>The 24-Hour Cycle</h2>
-        <div class="steps-container">
-            <div class="step-card">
-                <span class="step-num">01</span>
-                <h3>Order by 10AM</h3>
-                <p>Secure your bake before the daily prep begins.</p>
-            </div>
-            <div class="step-card">
-                <span class="step-num">02</span>
-                <h3>Overnight Rise</h3>
-                <p>24 hours of slow fermentation for gut health.</p>
-            </div>
-            <div class="step-card">
-                <span class="step-num">03</span>
-                <h3>Dawn Bake</h3>
-                <p>Fresh from the oven to your table the next day.</p>
+    <section class="philosophy">
+        <div class="container">
+            <p class="pre-title">Our Philosophy</p>
+            <h2>Real food doesn't have a rush.</h2>
+            <div class="divider"></div>
+            <p class="credo">We believe in the slow path. Every loaf is a 24-hour journey from starter to oven, ensuring maximum flavor and gut-friendly nutrition.</p>
+        </div>
+    </section>
+
+    <section id="products" class="bakery-case">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-visual">
+                    <img src="assets/product-sourdough.jpg" alt="Signature Sourdough">
+                </div>
+                <div class="product-details">
+                    <h3>Signature Sourdough</h3>
+                    <p class="description">A classic mahogany crust with a soft, airy crumb. Made with just flour, water, and sea salt.</p>
+                    <p class="price">$10</p>
+                    <div class="purchase-options">
+                        <a class="gumroad-button btn-dark" href="#">Pay Online</a>
+                        <button class="btn-outline" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay In-Person</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="products">
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('assets/product-sourdough.jpg');"></div>
-                <div class="product-info">
-                    <h3>Signature Sourdough</h3>
-                    <p>Our classic artisan loaf. Real food, made with love.</p>
-                    <span class="price">$10.00</span>
-                    <div class="cta-stack">
-                        <a class="gumroad-button" href="https://gumroad.com/l/YOUR_LINK">Pay Now</a>
-                        <button class="btn-secondary" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Your Reservation</h2>
+            <form action="https://formspree.io/f/YOUR_ID" method="POST">
+                <input type="hidden" name="Product" id="hiddenProduct">
+                <input type="text" name="Name" placeholder="Full Name" required>
+                <input type="email" name="Email" placeholder="Email Address" required>
+                <label>Select Your Pickup Date</label>
+                <input type="date" id="orderDate" name="Date" required>
+                <button type="submit" class="btn-main full-width">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ... (Keep the previous status check logic here) ...
+        // Ensure updateBakeryStatus() and openOrderModal() are included!
+    </script>
+</body>
+</html>
