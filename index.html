@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Blossom Kitchen & Bakery | Handcrafted Sourdough</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="Orange Blossom Logo" class="main-logo">
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Real Food. Made with Love.</h1>
+            <p>Sourdough bread and artisanal treats, fermented for 24 hours and baked to order in Okotoks.</p>
+            <a href="#products" class="btn">View Today's Bake</a>
+        </div>
+    </header>
+
+    <section class="process">
+        <h2>The 48-Hour Promise</h2>
+        <div class="steps">
+            <div class="step">
+                <span>01</span>
+                <h3>The Request</h3>
+                <p>Order by 6 PM today to start the cycle.</p>
+            </div>
+            <div class="step">
+                <span>02</span>
+                <h3>The Ferment</h3>
+                <p>24 hours of slow, natural rising for gut health.</p>
+            </div>
+            <div class="step">
+                <span>03</span>
+                <h3>The Bake</h3>
+                <p>Baked fresh on the morning of your delivery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Our Bakery Case</h2>
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('bread1.jpg');"></div>
+                <h3>Signature Sourdough Boule</h3>
+                <p>Our classic loaf with a crunchy crust and tangy, airy interior.</p>
+                <p class="price">$10.00</p>
+                <div class="button-group">
+                    <a class="gumroad-button" href="https://gumroad.com/l/YOUR_LINK_HERE">Pay Now</a>
+                    <button class="request-btn" onclick="openRequest('Signature Sourdough')">Request & Pay in Person</button>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Reservation Request</h2>
+            <form id="orderForm">
+                <input type="hidden" id="selectedProduct" name="product">
+                <label>Name</label>
+                <input type="text" placeholder="Your Name" required>
+                <label>Pickup/Delivery Date (Min. 2 days notice)</label>
+                <input type="date" id="orderDate" required>
+                <p class="form-note">*Note: We need 48 hours to prepare your sourdough.</p>
+                <button type="submit" class="btn">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Orange Blossom Kitchen & Bakery | Okotoks, AB</p>
+    </footer>
+
+    <script>
+        // Set minimum date to 2 days from now
+        const dateInput = document.getElementById('orderDate');
+        const today = new Date();
+        const minDate = new Date(today);
+        minDate.setDate(minDate.getDate() + 2);
+        dateInput.min = minDate.toISOString().split("T")[0];
+
+        function openRequest(product) {
+            document.getElementById('selectedProduct').value = product;
+            document.getElementById('requestModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('requestModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
