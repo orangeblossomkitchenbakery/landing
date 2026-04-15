@@ -31,13 +31,13 @@
                     <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo-small">
                 </div>
                 <div id="status-badge" class="status-badge">
-                    <span id="status-text">Checking Bakery...</span>
+                    <span id="status-text">Updating Schedule...</span>
                 </div>
             </div>
             
             <div class="hero-text-wrap">
                 <h1>Handcrafted <br><em>with</em> Love.</h1>
-                <p id="hero-subtext"></p>
+                <p id="hero-subtext">Order before 10 AM to enjoy fresh bread tomorrow.</p>
                 <div class="hero-btns">
                     <a href="#products" class="btn-main">Browse the Bake</a>
                 </div>
@@ -123,12 +123,13 @@
 
             if (now.getHours() < cutoff) {
                 statusBadge.className = "status-badge status-open";
-                statusText.innerText = "Accepting Orders for Tomorrow";
-                heroSubtext.innerHTML = "Good morning! We're prepping now—order in the next <strong>" + (cutoff - now.getHours()) + " hours</strong> for fresh bread tomorrow.";
+                statusText.innerText = "Order Now for Tomorrow";
+                heroSubtext.innerHTML = "Place your order before <strong>10 AM today</strong> to get your fresh bread delivered tomorrow morning!";
             } else {
                 statusBadge.className = "status-badge status-prep";
+                // Kept your requested phrase for the badge
                 statusText.innerText = "Currently in Prep Mode";
-                heroSubtext.innerHTML = "Today's flour has been dusted and our starters are busy! Place your order now, and we'll begin your slow-fermented dough tomorrow morning for a fresh delivery the day after.";
+                heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now to get your <strong>freshly baked bread delivered Friday morning.</strong>";
             }
         }
         function openOrderModal(product) {
