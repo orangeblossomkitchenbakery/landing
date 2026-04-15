@@ -31,13 +31,13 @@
                     <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo-small">
                 </div>
                 <div id="status-badge" class="status-badge">
-                    <span id="status-text">Synchronizing...</span>
+                    <span id="status-text">Checking Bakery...</span>
                 </div>
             </div>
             
             <div class="hero-text-wrap">
                 <h1>Handcrafted <br><em>with</em> Love.</h1>
-                <p id="hero-subtext">Our sourdough is a slow-risen labor of love.</p>
+                <p id="hero-subtext"></p>
                 <div class="hero-btns">
                     <a href="#products" class="btn-main">Browse the Bake</a>
                 </div>
@@ -45,10 +45,45 @@
         </div>
     </header>
 
+    <section class="philosophy">
+        <div class="container">
+            <p class="pre-title">Our Philosophy</p>
+            <h2>Real food doesn't have a rush.</h2>
+            <div class="divider"></div>
+            <p class="credo">We believe in the slow path. Every loaf is a 24-hour journey from starter to oven, ensuring maximum flavor and gut-friendly nutrition.</p>
+        </div>
+    </section>
+
+    <section id="products" class="bakery-case">
+        <div class="container">
+            <p class="pre-title">Current Offerings</p>
+            <div class="product-gallery">
+                <div class="product-entry">
+                    <div class="product-visual-wrapper">
+                        <img src="assets/product-sourdough.jpg" alt="Signature Sourdough" class="product-main-img">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <h3>Signature Sourdough</h3>
+                            <span class="product-price">$10</span>
+                        </div>
+                        <p class="product-description">Our flagship loaf. A deep mahogany crust with a light, wild crumb. Naturally leavened and highly digestible.</p>
+                        <div class="button-set">
+                            <a class="btn-buy" href="#">Purchase Online</a>
+                            <button class="btn-reserve" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="grand-footer" id="contact">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="assets/logo_round.png" alt="Orange Blossom" class="footer-logo">
+                <div class="footer-logo-wrap">
+                    <img src="assets/logo_round.png" alt="Orange Blossom" class="footer-logo-img">
+                </div>
                 <p>Real Food. Made with Love.</p>
             </div>
             <div class="footer-column">
@@ -70,8 +105,8 @@
             <h2 id="modalTitle">Your Reservation</h2>
             <form action="https://formspree.io/f/YOUR_ID" method="POST">
                 <input type="hidden" name="Product" id="hiddenProduct">
-                <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="Email" placeholder="Your Email" required>
+                <input type="text" name="Name" placeholder="Name" required>
+                <input type="email" name="Email" placeholder="Email" required>
                 <input type="date" id="orderDate" name="PickupDate" required>
                 <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer;">Confirm</button>
             </form>
@@ -89,15 +124,13 @@
             if (now.getHours() < cutoff) {
                 statusBadge.className = "status-badge status-open";
                 statusText.innerText = "Accepting Orders for Tomorrow";
-                heroSubtext.innerHTML = "Good morning! We're prepping now—order in the next <strong>" + (cutoff - now.getHours()) + " hours</strong> to enjoy fresh sourdough tomorrow morning.";
+                heroSubtext.innerHTML = "Good morning! We're prepping now—order in the next <strong>" + (cutoff - now.getHours()) + " hours</strong> for fresh bread tomorrow.";
             } else {
                 statusBadge.className = "status-badge status-prep";
                 statusText.innerText = "Currently in Prep Mode";
-                // New, clearer, and more welcoming text
                 heroSubtext.innerHTML = "Today's flour has been dusted and our starters are busy! Place your order now, and we'll begin your slow-fermented dough tomorrow morning for a fresh delivery the day after.";
             }
         }
-
         function openOrderModal(product) {
             document.getElementById('modalTitle').innerText = "Reserve " + product;
             document.getElementById('hiddenProduct').value = product;
