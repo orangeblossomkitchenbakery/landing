@@ -33,7 +33,7 @@ body {
 .nav-links a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; margin-left: 25px; letter-spacing: 1.5px; }
 .nav-cta { border: 1.5px solid var(--ink); padding: 10px 24px; border-radius: 50px; }
 
-/* --- Hero Section Fix --- */
+/* --- Hero --- */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('assets/hero-bg.jpg') center/cover;
@@ -55,109 +55,133 @@ body {
 .status-badge { border-left: 2px solid var(--clay); padding-left: 20px; text-align: left; }
 .status-open { border-left-color: var(--sage); }
 #status-text { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--clay); letter-spacing: 2px; }
-.status-open #status-text { color: var(--sage); }
 
-/* --- Visibility Fix for Hero Title --- */
+/* --- Title Fix --- */
+.title-shield {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 30px 50px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 25px;
+}
 .hero-title { 
     font-family: 'Playfair Display', serif; 
-    font-size: clamp(3rem, 10vw, 5.5rem); 
-    color: var(--white); 
-    text-shadow: 0 4px 30px rgba(0,0,0,0.4); /* Makes text pop against photo */
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    color: var(--ink); /* Switched back to ink with the shield for elegance */
     line-height: 1.1;
-    margin-bottom: 25px;
 }
 .hero-title em { font-style: italic; }
 
 #hero-subtext { 
-    font-size: 1.1rem; 
-    max-width: 600px; 
-    margin: 0 auto 40px; 
-    background: rgba(255,255,255,0.85); 
-    padding: 20px; 
-    border-radius: 12px; 
-    color: var(--ink);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-size: 1rem; max-width: 550px; margin: 0 auto 40px; 
+    background: rgba(255,255,255,0.9); padding: 20px; border-radius: 12px; 
 }
 
 .btn-hero { 
-    background: var(--white); 
-    color: var(--ink); 
-    padding: 20px 50px; 
-    text-decoration: none; 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    letter-spacing: 2px;
-    border-radius: 2px;
+    background: var(--ink); color: var(--white); padding: 20px 50px; 
+    text-decoration: none; text-transform: uppercase; font-weight: 600; letter-spacing: 2px;
 }
 
-/* --- Bakery Case Redesign --- */
+/* --- Bakery Case --- */
 .bakery-case { padding: 120px 8%; background: var(--white); }
-.pre-title { text-transform: uppercase; letter-spacing: 4px; font-size: 0.65rem; color: var(--clay); font-weight: 700; text-align: center; margin-bottom: 10px; }
+.pre-title { text-transform: uppercase; letter-spacing: 4px; font-size: 0.65rem; color: var(--clay); font-weight: 700; text-align: center; }
 .section-title { font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 80px; }
 
 .product-gallery { max-width: 1200px; margin: 0 auto; }
-.product-card { 
-    display: flex; 
-    background: var(--bg); 
-    border-radius: 4px; 
-    overflow: hidden; 
-    box-shadow: 0 15px 50px rgba(0,0,0,0.04);
-}
-
+.product-card { display: flex; background: var(--bg); border-radius: 4px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.04); }
 .product-image-box { flex: 1.2; height: 500px; }
-.product-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-.product-card:hover img { transform: scale(1.05); }
-
+.product-image-box img { width: 100%; height: 100%; object-fit: cover; }
 .product-info-box { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
-
-.info-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-.info-top h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 400; }
+.info-top { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 30px; }
+.info-top h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; }
 .price-tag { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--clay); }
 
-.description { font-size: 1.1rem; color: #666; font-weight: 300; margin-bottom: 40px; line-height: 1.8; }
+.action-buttons { display: flex; flex-direction: column; gap: 12px; }
+.btn-order-dark { background: var(--ink); color: var(--white); padding: 18px; text-decoration: none; text-transform: uppercase; font-weight: 600; text-align: center; }
+.btn-order-outline { background: transparent; border: 1px solid var(--ink); padding: 16px; text-transform: uppercase; font-weight: 600; cursor: pointer; }
 
-/* --- Elegant Buttons --- */
-.action-buttons { display: flex; flex-direction: column; gap: 15px; }
-
-.btn-order-dark { 
-    background: var(--ink); 
-    color: var(--white); 
-    padding: 20px; 
-    text-align: center; 
-    text-decoration: none; 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    transition: 0.3s;
+/* --- THE FOOTER FIX (HARD LOCKED) --- */
+.grand-footer {
+    padding: 100px 8% 60px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
 }
-.btn-order-dark:hover { background: var(--clay); }
 
-.btn-order-outline { 
-    background: transparent; 
-    border: 1px solid var(--ink); 
-    padding: 18px; 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    letter-spacing: 2px;
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* This is the key fix: The logo container is locked at 80px */
+.footer-logo-lock {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.footer-logo-lock img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--sage);
+}
+
+.footer-column h4 {
+    text-transform: uppercase;
     font-size: 0.75rem;
-    cursor: pointer;
-    transition: 0.3s;
+    letter-spacing: 2px;
+    color: var(--clay);
+    margin-bottom: 25px;
 }
-.btn-order-outline:hover { background: var(--ink); color: var(--white); }
 
-/* --- Footer Refinement --- */
-.grand-footer { padding: 100px 8% 50px; background: var(--bg); border-top: 1px solid var(--border); }
-.footer-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
-.footer-logo-wrap { width: 80px; height: 80px; margin-bottom: 25px; }
-.footer-brand p { font-family: 'Playfair Display', serif; font-style: italic; color: var(--sage); font-size: 1.1rem; }
+.footer-links a, .footer-links p {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 300;
+}
 
-/* --- Mobile Responsiveness --- */
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    opacity: 0.4;
+}
+
+/* --- Modal --- */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+.modal-content { background: var(--bg); margin: 8% auto; padding: 40px; width: 90%; max-width: 450px; position: relative; }
+.modal-content input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--border); }
+.close { position: absolute; right: 25px; top: 15px; font-size: 30px; cursor: pointer; }
+
+/* --- Mobile Fix --- */
 @media (max-width: 900px) {
+    .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-brand, .footer-logo-lock { align-items: center; margin: 0 auto; }
     .product-card { flex-direction: column; }
     .product-image-box { height: 350px; }
-    .product-info-box { padding: 40px 25px; }
-    .info-top h3 { font-size: 1.8rem; }
-    .footer-container { grid-template-columns: 1fr; text-align: center; }
-    .footer-logo-wrap { margin: 0 auto 20px; }
+    .navbar { padding: 1rem 5%; }
+    .nav-logo-wrap { height: 60px; width: 160px; }
 }
