@@ -36,41 +36,35 @@
             </div>
             
             <div class="hero-text-wrap">
-                <h1>Handcrafted <br><em>with</em> Love.</h1>
-                <p id="hero-subtext">Order before 10 AM to enjoy fresh bread tomorrow.</p>
+                <h1 class="hero-title">Handcrafted <br><em>with</em> Love.</h1>
+                <p id="hero-subtext"></p>
                 <div class="hero-btns">
-                    <a href="#products" class="btn-main">Browse the Bake</a>
+                    <a href="#products" class="btn-hero">Browse the Bake</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="philosophy">
-        <div class="container">
-            <p class="pre-title">Our Philosophy</p>
-            <h2>Real food doesn't have a rush.</h2>
-            <div class="divider"></div>
-            <p class="credo">We believe in the slow path. Every loaf is a 24-hour journey from starter to oven, ensuring maximum flavor and gut-friendly nutrition.</p>
-        </div>
-    </section>
-
     <section id="products" class="bakery-case">
         <div class="container">
-            <p class="pre-title">Current Offerings</p>
+            <p class="pre-title">The Daily Bake</p>
+            <h2 class="section-title">Fresh from the Oven</h2>
+            
             <div class="product-gallery">
-                <div class="product-entry">
-                    <div class="product-visual-wrapper">
-                        <img src="assets/product-sourdough.jpg" alt="Signature Sourdough" class="product-main-img">
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="assets/product-sourdough.jpg" alt="Signature Sourdough">
                     </div>
-                    <div class="product-content">
-                        <div class="product-header">
+                    <div class="product-info-box">
+                        <div class="info-top">
                             <h3>Signature Sourdough</h3>
-                            <span class="product-price">$10</span>
+                            <p class="price-tag">$10.00</p>
                         </div>
-                        <p class="product-description">Our flagship loaf. A deep mahogany crust with a light, wild crumb. Naturally leavened and highly digestible.</p>
-                        <div class="button-set">
-                            <a class="btn-buy" href="#">Purchase Online</a>
-                            <button class="btn-reserve" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
+                        <p class="description">A classic, naturally leavened loaf with a deep mahogany crust and a light, airy crumb. Fermented for 24 hours for exceptional flavor and easy digestion.</p>
+                        
+                        <div class="action-buttons">
+                            <a class="btn-order-dark" href="#">Purchase Online</a>
+                            <button class="btn-order-outline" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
                         </div>
                     </div>
                 </div>
@@ -108,7 +102,7 @@
                 <input type="text" name="Name" placeholder="Name" required>
                 <input type="email" name="Email" placeholder="Email" required>
                 <input type="date" id="orderDate" name="PickupDate" required>
-                <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer;">Confirm</button>
+                <button type="submit" class="btn-order-dark" style="width:100%; border:none; cursor:pointer; margin-top:20px;">Confirm Reservation</button>
             </form>
         </div>
     </div>
@@ -127,9 +121,8 @@
                 heroSubtext.innerHTML = "Place your order before <strong>10 AM today</strong> to get your fresh bread delivered tomorrow morning!";
             } else {
                 statusBadge.className = "status-badge status-prep";
-                // Kept your requested phrase for the badge
                 statusText.innerText = "Currently in Prep Mode";
-                heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now to get your <strong>freshly baked bread delivered Friday morning.</strong>";
+                heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now for <strong>freshly baked bread delivered Friday morning.</strong>";
             }
         }
         function openOrderModal(product) {
