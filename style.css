@@ -26,25 +26,61 @@ body {
 
 h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-/* --- Fixed Navbar (Hard Locked) --- */
+/* --- Fixed Navbar & Heroic Banner --- */
 .navbar {
-    padding: 1.2rem 5%;
+    padding: 2.5rem 5%; /* Increased padding for a more luxurious feel */
     position: fixed;
     width: 100%;
     z-index: 1000;
     background: rgba(253, 250, 245, 0.95);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
 }
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
 
+.nav-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    width: 100%;
+}
+
+/* --- THE LOGO SIZE FIX --- */
 .nav-logo-wrap { 
-    width: 220px; /* Limits banner width */
-    height: 100px; /* Limits banner height */
+    width: 350px; /* Increased from 220px to make it truly BIG */
+    height: 140px; /* Increased from 100px to give it height */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
-.nav-logo { width: 100%; height: 100%; object-fit: contain; }
 
-.nav-links a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; margin-left: 25px; letter-spacing: 1px; }
+.nav-logo-wrap:hover {
+    transform: scale(1.02); /* Slight grow effect when hovering over the logo */
+}
+
+.nav-logo { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Ensures the logo stays sharp and doesn't stretch */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--ink); 
+    font-weight: 600; 
+    font-size: 0.85rem; /* Slightly larger text to match the bigger logo */
+    text-transform: uppercase; 
+    margin-left: 35px; 
+    letter-spacing: 2px; 
+}
 .nav-cta { border: 1.5px solid var(--ink); padding: 10px 22px; border-radius: 50px; }
 
 /* --- Hero & Dashboard --- */
