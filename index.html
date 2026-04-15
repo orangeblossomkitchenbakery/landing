@@ -17,7 +17,7 @@
                 <img src="assets/logo-banner.png" alt="Orange Blossom Bakery" class="nav-logo">
             </div>
             <div class="nav-links">
-                <a href="#products">The Bakery</a>
+                <a href="menu.html">The Menu</a>
                 <a href="about.html">Our Story</a>
                 <a href="#contact" class="nav-cta">Connect</a>
             </div>
@@ -31,7 +31,7 @@
                     <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo-small">
                 </div>
                 <div id="status-badge" class="status-badge">
-                    <span id="status-text">Checking Bakery...</span>
+                    <span id="status-text">Synchronizing...</span>
                 </div>
             </div>
             
@@ -41,44 +41,23 @@
                 </div>
                 <p id="hero-subtext"></p>
                 <div class="hero-btns">
-                    <a href="#products" class="btn-hero">Browse the Bake</a>
+                    <a href="menu.html" class="btn-hero" style="background:var(--ink); color:white; padding:20px 40px; text-decoration:none; text-transform:uppercase; font-weight:600; letter-spacing:2px;">View Menu</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="products" class="bakery-case">
-        <div class="container">
-            <p class="pre-title">The Daily Bake</p>
-            <h2 class="section-title">Fresh from the Oven</h2>
-            
-            <div class="product-gallery">
-                <div class="product-card">
-                    <div class="product-image-box">
-                        <img src="assets/product-sourdough.jpg" alt="Signature Sourdough">
-                    </div>
-                    <div class="product-info-box">
-                        <div class="info-top">
-                            <h3>Signature Sourdough</h3>
-                            <p class="price-tag">$10.00</p>
-                        </div>
-                        <p class="description">A classic, naturally leavened loaf with a deep mahogany crust and a light, wild crumb. Fermented for 24 hours for exceptional flavor and easy digestion.</p>
-                        
-                        <div class="action-buttons">
-                            <a class="btn-order-dark" href="#">Purchase Online</a>
-                            <button class="btn-order-outline" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="philosophy" style="padding:100px 10%; text-align:center;">
+        <p class="pre-title">Our Philosophy</p>
+        <h2 style="font-size:2.5rem; margin-bottom:20px;">Real food doesn't have a rush.</h2>
+        <p style="max-width:600px; margin:0 auto; font-style:italic;">Every loaf is a 24-hour journey from starter to oven, ensuring maximum flavor and health.</p>
     </section>
 
     <footer class="grand-footer" id="contact">
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo-lock">
-                    <img src="assets/logo_round.png" alt="Orange Blossom">
+                    <img src="assets/logo_round.png" alt="Orange Blossom Logo">
                 </div>
                 <p class="footer-tagline">Real Food. Made with Love.</p>
             </div>
@@ -86,7 +65,7 @@
             <div class="footer-column">
                 <h4>Explore</h4>
                 <div class="footer-links">
-                    <a href="#products">The Bakery Case</a>
+                    <a href="menu.html">The Menu</a>
                     <a href="about.html">Our Story</a>
                 </div>
             </div>
@@ -104,20 +83,6 @@
         </div>
     </footer>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Your Reservation</h2>
-            <form action="https://formspree.io/f/YOUR_ID" method="POST">
-                <input type="hidden" name="Product" id="hiddenProduct">
-                <input type="text" name="Name" placeholder="Name" required>
-                <input type="email" name="Email" placeholder="Email" required>
-                <input type="date" id="orderDate" name="PickupDate" required>
-                <button type="submit" class="btn-order-dark" style="width:100%; border:none; cursor:pointer;">Confirm Reservation</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         function updateBakeryStatus() {
             const now = new Date();
@@ -129,24 +94,13 @@
             if (now.getHours() < cutoff) {
                 statusBadge.className = "status-badge status-open";
                 statusText.innerText = "Order Now for Tomorrow";
-                heroSubtext.innerHTML = "Place your order before <strong>10 AM today</strong> to get your fresh bread tomorrow morning!";
+                heroSubtext.innerHTML = "Order by <strong>10 AM today</strong> to get your fresh bread tomorrow morning!";
             } else {
                 statusBadge.className = "status-badge status-prep";
                 statusText.innerText = "Currently in Prep Mode";
-                heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now for <strong>freshly baked bread delivered Friday morning.</strong>";
+                heroSubtext.innerHTML = "Place your order now to secure your spot for <strong>Friday morning delivery!</strong>";
             }
         }
-        function openOrderModal(product) {
-            document.getElementById('modalTitle').innerText = "Reserve " + product;
-            document.getElementById('hiddenProduct').value = product;
-            const now = new Date();
-            let minDate = new Date();
-            if (now.getHours() >= 10) { minDate.setDate(now.getDate() + 2); } 
-            else { minDate.setDate(now.getDate() + 1); }
-            document.getElementById('orderDate').min = minDate.toISOString().split("T")[0];
-            document.getElementById('orderModal').style.display = "block";
-        }
-        function closeModal() { document.getElementById('orderModal').style.display = "none"; }
         updateBakeryStatus();
     </script>
 </body>
