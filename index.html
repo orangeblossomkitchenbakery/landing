@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orange Blossom Kitchen & Bakery | Handcrafted with Love</title>
+    <title>Orange Blossom Kitchen & Bakery</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo-wrap">
-                <img src="assets/logo-banner.png" alt="Orange Blossom" class="nav-logo">
+                <img src="assets/logo-banner.png" alt="Orange Blossom Bakery" class="nav-logo">
             </div>
             <div class="nav-links">
                 <a href="#products">The Bakery</a>
@@ -26,13 +26,16 @@
 
     <header class="hero">
         <div class="hero-inner">
-            <div id="status-badge" class="status-badge">
-                <span id="status-text">Synchronizing...</span>
+            <div class="brand-status-row">
+                <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo-small">
+                <div id="status-badge" class="status-badge">
+                    <span id="status-text">Synchronizing...</span>
+                </div>
             </div>
-            <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo">
+            
             <div class="hero-text-wrap">
                 <h1>Handcrafted <br><em>with</em> Love.</h1>
-                <p id="hero-subtext">Sourdough fermented for 24 hours, baked fresh for your morning in Okotoks.</p>
+                <p id="hero-subtext">Sourdough fermented for 24 hours, baked fresh for your morning.</p>
                 <div class="hero-btns">
                     <a href="#products" class="btn-main">Browse the Bake</a>
                 </div>
@@ -40,87 +43,7 @@
         </div>
     </header>
 
-    <section class="philosophy">
-        <div class="container">
-            <p class="pre-title">Our Philosophy</p>
-            <h2>Real food doesn't have a rush.</h2>
-            <div class="divider"></div>
-            <p class="credo">We believe in the slow path. Every loaf is a 24-hour journey from starter to oven, ensuring maximum flavor and gut-friendly nutrition.</p>
-        </div>
-    </section>
-
-    <section id="products" class="bakery-case">
-        <div class="container">
-            <p class="pre-title">Current Offerings</p>
-            <div class="product-gallery">
-                <div class="product-entry">
-                    <div class="product-visual-wrapper">
-                        <img src="assets/product-sourdough.jpg" alt="Signature Sourdough" class="product-main-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-header">
-                            <h3>Signature Sourdough</h3>
-                            <span class="product-price">$10</span>
-                        </div>
-                        <p class="product-description">Our flagship loaf. A deep mahogany crust with a light, wild crumb. Naturally leavened and highly digestible.</p>
-                        <div class="button-set">
-                            <a class="btn-buy" href="#">Purchase Online</a>
-                            <button class="btn-reserve" onclick="openOrderModal('Signature Sourdough')">Reserve & Pay in Person</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="grand-footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="assets/logo_round.png" alt="Orange Blossom" class="footer-logo">
-                <p>Real Food. Made with Love.</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Explore</h4>
-                <a href="#products">The Bakery Case</a>
-                <a href="about.html">Our Story & Benefits</a>
-                <a href="#orderModal" onclick="openOrderModal('Special Order')">Special Requests</a>
-            </div>
-
-            <div class="footer-column">
-                <h4>Connect</h4>
-                <p>Okotoks, Alberta</p>
-                <a href="mailto:hello@orangeblossom.ca">hello@orangeblossom.ca</a>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Orange Blossom Kitchen & Bakery</p>
-        </div>
-    </footer>
-
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Your Reservation</h2>
-            <form action="https://formspree.io/f/YOUR_ID" method="POST">
-                <input type="hidden" name="Product" id="hiddenProduct">
-                <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="Email" placeholder="Email Address" required>
-                <label style="display:block; margin-top:15px; font-weight:600; font-size: 0.7rem;">PICKUP DATE</label>
-                <input type="date" id="orderDate" name="PickupDate" required>
-                <button type="submit" class="btn-main" style="width:100%; margin-top:20px; border:none; cursor:pointer;">Confirm Request</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        const modal = document.getElementById("orderModal");
-        const dateInput = document.getElementById('orderDate');
-
         function updateBakeryStatus() {
             const now = new Date();
             const cutoff = 10; 
@@ -131,29 +54,14 @@
             if (now.getHours() < cutoff) {
                 statusBadge.className = "status-badge status-open";
                 statusText.innerText = "Accepting Orders for Tomorrow";
-                heroSubtext.innerHTML = "Secure your bake in the next <strong>" + (cutoff - now.getHours()) + " hours</strong> for next-day delivery.";
+                heroSubtext.innerHTML = "Good morning! Order in the next <strong>" + (cutoff - now.getHours()) + " hours</strong> to have fresh bread on your table tomorrow.";
             } else {
                 statusBadge.className = "status-badge status-prep";
                 statusText.innerText = "Currently in Prep Mode";
-                heroSubtext.innerText = "The 10 AM cutoff has passed. New orders are scheduled for the day after tomorrow.";
+                // Friendlier and clearer message
+                heroSubtext.innerHTML = "Today's baking has already begun! If you order now, we'll start your dough first thing tomorrow for a fresh delivery the morning after.";
             }
         }
-
-        function openOrderModal(product) {
-            document.getElementById('modalTitle').innerText = "Reserve " + product;
-            document.getElementById('hiddenProduct').value = product;
-            const now = new Date();
-            const cutoff = 10;
-            let minDate = new Date();
-            if (now.getHours() >= cutoff) { minDate.setDate(now.getDate() + 2); } 
-            else { minDate.setDate(now.getDate() + 1); }
-            dateInput.min = minDate.toISOString().split("T")[0];
-            dateInput.value = minDate.toISOString().split("T")[0];
-            modal.style.display = "block";
-        }
-
-        function closeModal() { modal.style.display = "none"; }
-        window.onclick = function(event) { if (event.target == modal) closeModal(); }
         updateBakeryStatus();
     </script>
 </body>
