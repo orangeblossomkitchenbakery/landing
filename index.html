@@ -31,12 +31,14 @@
                     <img src="assets/logo_round.png" alt="Orange Blossom Logo" class="hero-logo-small">
                 </div>
                 <div id="status-badge" class="status-badge">
-                    <span id="status-text">Updating Schedule...</span>
+                    <span id="status-text">Checking Bakery...</span>
                 </div>
             </div>
             
             <div class="hero-text-wrap">
-                <h1 class="hero-title">Handcrafted <br><em>with</em> Love.</h1>
+                <div class="title-shield">
+                    <h1 class="hero-title">Handcrafted <br><em>with</em> Love.</h1>
+                </div>
                 <p id="hero-subtext"></p>
                 <div class="hero-btns">
                     <a href="#products" class="btn-hero">Browse the Bake</a>
@@ -60,7 +62,7 @@
                             <h3>Signature Sourdough</h3>
                             <p class="price-tag">$10.00</p>
                         </div>
-                        <p class="description">A classic, naturally leavened loaf with a deep mahogany crust and a light, airy crumb. Fermented for 24 hours for exceptional flavor and easy digestion.</p>
+                        <p class="description">A classic, naturally leavened loaf with a deep mahogany crust and a light, wild crumb. Fermented for 24 hours for exceptional flavor and easy digestion.</p>
                         
                         <div class="action-buttons">
                             <a class="btn-order-dark" href="#">Purchase Online</a>
@@ -75,21 +77,30 @@
     <footer class="grand-footer" id="contact">
         <div class="footer-container">
             <div class="footer-brand">
-                <div class="footer-logo-wrap">
-                    <img src="assets/logo_round.png" alt="Orange Blossom" class="footer-logo-img">
+                <div class="footer-logo-lock">
+                    <img src="assets/logo_round.png" alt="Orange Blossom">
                 </div>
-                <p>Real Food. Made with Love.</p>
+                <p class="footer-tagline">Real Food. Made with Love.</p>
             </div>
+            
             <div class="footer-column">
                 <h4>Explore</h4>
-                <a href="#products">The Bakery Case</a>
-                <a href="about.html">Our Story</a>
+                <div class="footer-links">
+                    <a href="#products">The Bakery Case</a>
+                    <a href="about.html">Our Story</a>
+                </div>
             </div>
+
             <div class="footer-column">
                 <h4>Connect</h4>
-                <p>Okotoks, Alberta</p>
-                <a href="mailto:hello@orangeblossom.ca">hello@orangeblossom.ca</a>
+                <div class="footer-links">
+                    <p>Okotoks, Alberta</p>
+                    <a href="mailto:hello@orangeblossom.ca">hello@orangeblossom.ca</a>
+                </div>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Orange Blossom Kitchen & Bakery</p>
         </div>
     </footer>
 
@@ -102,7 +113,7 @@
                 <input type="text" name="Name" placeholder="Name" required>
                 <input type="email" name="Email" placeholder="Email" required>
                 <input type="date" id="orderDate" name="PickupDate" required>
-                <button type="submit" class="btn-order-dark" style="width:100%; border:none; cursor:pointer; margin-top:20px;">Confirm Reservation</button>
+                <button type="submit" class="btn-order-dark" style="width:100%; border:none; cursor:pointer;">Confirm Reservation</button>
             </form>
         </div>
     </div>
@@ -118,7 +129,7 @@
             if (now.getHours() < cutoff) {
                 statusBadge.className = "status-badge status-open";
                 statusText.innerText = "Order Now for Tomorrow";
-                heroSubtext.innerHTML = "Place your order before <strong>10 AM today</strong> to get your fresh bread delivered tomorrow morning!";
+                heroSubtext.innerHTML = "Place your order before <strong>10 AM today</strong> to get your fresh bread tomorrow morning!";
             } else {
                 statusBadge.className = "status-badge status-prep";
                 statusText.innerText = "Currently in Prep Mode";
