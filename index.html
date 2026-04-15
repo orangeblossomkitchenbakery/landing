@@ -113,8 +113,8 @@
         // 2. Logic for Display
         if (isSoldOut) {
             statusBadge.className = "status-badge status-prep"; // Clay color
-            statusText.innerText = "Sold Out for Today";
-            heroSubtext.innerHTML = "Our tiny batch for today has found its homes! <strong>Place your order now</strong> to secure one of our 24-hour fermented loaves for the next available bake.";
+            statusText.innerText = "Currently in Prep Mode";
+            heroSubtext.innerHTML = "Today's baking has already begun. Place your order now to get <strong>fresh bread ready for the next available bake.";
         } 
         else if (now.getHours() < BAKERY_SETTINGS.cutoffHour) {
             statusBadge.className = "status-badge status-open"; // Sage color
@@ -124,7 +124,7 @@
         else {
             statusBadge.className = "status-badge status-prep";
             statusText.innerText = "Currently in Prep Mode";
-            heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now for <strong>freshly baked bread delivered Friday morning.</strong>";
+            heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now for <strong>freshly baked bread ready for the next available bake.</strong>";
         }
     }
 
