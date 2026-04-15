@@ -88,25 +88,78 @@
         </div>
     </footer>
 
-    <script>
-        function updateBakeryStatus() {
-            const now = new Date();
-            const cutoff = 10; 
-            const statusBadge = document.getElementById('status-badge');
-            const statusText = document.getElementById('status-text');
-            const heroSubtext = document.getElementById('hero-subtext');
+  <script>
+    // --- BAKERY CONTROL PANEL ---
+    const BAKERY_SETTINGS = {
+        dailyLimit: 4,          // Change this to 5, 10, etc., as you get comfortable
+        currentOrders: 4,       // Change this number daily based on how many you've sold
+        closedDates: [          // Add dates here to mark them as "Sold Out" (YYYY-MM-DD)
+            '2026-04-20', 
+            '2026-04-25'
+        ],
+        cutoffHour: 10          // 10 AM Cutoff
+    };
 
-            if (now.getHours() < cutoff) {
-                statusBadge.className = "status-badge status-open";
-                statusText.innerText = "Order Now for Tomorrow";
-                heroSubtext.innerHTML = "Order by <strong>10 AM today</strong> for fresh bread tomorrow!";
-            } else {
-                statusBadge.className = "status-badge status-prep";
-                statusText.innerText = "Currently in Prep Mode";
-                heroSubtext.innerHTML = "Order now to secure your <strong>fresh bread for Friday morning.</strong>";
-            }
+    function updateBakeryStatus() {
+        const now = new Date();
+        const statusBadge = document.getElementById('status-badge');
+        const statusText = document.getElementById('status-text');
+        const heroSubtext = document.getElementById('hero-subtext');
+        const buyButtons = document.querySelectorAll('.btn-hero, .btn-order-dark, .btn-chic');
+
+        // 1. Check if we are Sold Out for the season/batch
+        const isSoldOut = BAKERY_SETTINGS.currentOrders >= BAKERY_SETTINGS.dailyLimit;
+
+        // 2. Logic for Display
+        if (isSoldOut) {
+            statusBadge.className = "status-badge status-prep"; // Clay color
+            statusText.innerText = "Sold Out for Today";
+            heroSubtext.innerHTML = "Our tiny batch for today has found its homes! <strong>Place your order now</strong> to secure one of our 24-hour fermented loaves for the next available bake.";
+        } 
+        else if (now.getHours() < BAKERY_SETTINGS.cutoffHour) {
+            statusBadge.className = "status-badge status-open"; // Sage color
+            statusText.innerText = "Accepting Orders";
+            heroSubtext.innerHTML = "Order before <strong>10 AM today</strong> to enjoy fresh bread delivered tomorrow morning!";
+        } 
+        else {
+            statusBadge.className = "status-badge status-prep";
+            statusText.innerText = "Currently in Prep Mode";
+            heroSubtext.innerHTML = "Our 10 AM window is closed, but you can still secure your spot! Order now for <strong>freshly baked bread delivered Friday morning.</strong>";
         }
-        updateBakeryStatus();
-    </script>
+    }
+
+    // 3. Logic to block specific dates in the Calendar Modal
+    function openOrderModal(product) {
+        const modal = document.getElementById('orderModal');
+        const dateInput = document.getElementById('orderDate');
+        document.getElementById('modalTitle').innerText = "Reserve " + product;
+        document.getElementById('hiddenProduct').value = product;
+
+        let minDate = new Date();
+        // If past cutoff, earliest delivery is 2 days away
+        if (new Date().getHours() >= BAKERY_SETTINGS.cutoffHour) {
+            minDate.setDate(minDate.getDate() + 2);
+        } else {
+            minDate.setDate(minDate.getDate() + 1);
+        }
+
+        dateInput.min = minDate.toISOString().split("T")[0];
+        
+        // Disable "Closed Dates" in the picker
+        dateInput.addEventListener('input', function() {
+            if (BAKERY_SETTINGS.closedDates.includes(this.value)) {
+                alert("We are fully booked or closed on this specific date. Please choose another morning for your delivery!");
+                this.value = "";
+            }
+        });
+
+        modal.style.display = "block";
+    }
+
+    function closeModal() { document.getElementById('orderModal').style.display = "none"; }
+    
+    // Initialize
+    updateBakeryStatus();
+</script>
 </body>
 </html>
