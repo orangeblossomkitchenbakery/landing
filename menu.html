@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bakery Case | Orange Blossom Kitchen & Bakery</title>
+    <title>The Collection | Orange Blossom Kitchen & Bakery</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
-    <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body class="menu-page">
 
@@ -24,57 +23,46 @@
         </div>
     </nav>
 
-    <header class="menu-hero">
-        <div class="menu-hero-inner">
-            <p class="pre-title">Hand-Shaped & Hearth-Baked</p>
-            <h1>The Bakery <em>Case</em></h1>
-            <p class="menu-intro">Our menu follows the rhythm of the seasons and the slow rise of our starters. Each loaf is baked to order, specifically for you.</p>
+    <header class="menu-header">
+        <div class="container">
+            <p class="pre-title">Slow Fermented • Hand Shaped</p>
+            <h1 class="chic-title">The <em>Bake</em> Collection</h1>
         </div>
     </header>
 
-    <section class="menu-gallery">
-        <div class="menu-item-row">
-            <div class="item-visual">
-                <img src="assets/product-sourdough.jpg" alt="Signature Sourdough Loaf">
-            </div>
-            <div class="item-details">
-                <span class="item-number">01</span>
-                <h2>Signature Sourdough</h2>
-                <div class="item-meta">
-                    <span class="item-price">$10.00</span>
-                    <span class="item-badge">24h Ferment</span>
+    <section class="menu-collection">
+        <div class="collection-item">
+            <div class="item-visual-gallery">
+                <div class="main-shot">
+                    <img src="assets/product-sourdough.jpg" alt="Signature Sourdough Crust">
                 </div>
-                <p class="item-description">The heart of our bakery. A rustic, mahogany-crust loaf with a soft, custard-like interior. Crafted with only stone-ground organic flour, filtered water, and sea salt.</p>
-                <div class="item-actions">
-                    <a class="btn-order-dark" href="#">Reserve for Tomorrow</a>
+                <div class="detail-shot">
+                    <img src="assets/product-sourdough-inside.jpg" alt="Signature Sourdough Crumb">
+                    <span class="detail-label">The Crumb</span>
+                </div>
+            </div>
+
+            <div class="item-text-content">
+                <div class="item-header">
+                    <h2 class="item-name">Signature Sourdough</h2>
+                    <span class="item-price">$10</span>
+                </div>
+                <p class="item-description">
+                    Our flagship loaf is a testament to patience. A crisp, shattered-glass crust gives way to a tender, open crumb with a complex tang. 
+                    Baked with stone-ground flour and 24 hours of wild fermentation.
+                </p>
+                <div class="item-footer">
+                    <button class="btn-chic" onclick="openOrderModal('Signature Sourdough')">Reserve Your Loaf</button>
                 </div>
             </div>
         </div>
 
-        <div class="menu-item-row reverse">
-            <div class="item-visual">
-                <div class="placeholder-img" style="background-color: #e5e0d8; height: 500px; display: flex; align-items: center; justify-content: center; font-style: italic;">Image: Artisanal Sourdough Variations</div>
-            </div>
-            <div class="item-details">
-                <span class="item-number">02</span>
-                <h2>Sourdough Variations</h2>
-                <div class="item-meta">
-                    <span class="item-price">Contact for Seasonal Pricing</span>
-                    <span class="item-badge">Limited Bake</span>
-                </div>
-                <p class="item-description">From roasted garlic and rosemary to honey-infused oats, we regularly offer seasonal variations inspired by the local Okotoks harvest.</p>
-                <div class="item-actions">
-                    <button class="btn-order-outline" onclick="openOrderModal('Seasonal Inquiry')">Inquire About Today's Bake</button>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="section-divider"></div>
+
+        </section>
 
     <footer class="grand-footer">
         </footer>
-
-    <div id="orderModal" class="modal">
-        </div>
 
 </body>
 </html>
