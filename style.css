@@ -15,7 +15,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Navbar --- */
+/* --- Fixed Navbar --- */
 .navbar {
     padding: 1rem 5%;
     position: fixed;
@@ -28,7 +28,7 @@ body {
 
 .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
 
-.nav-logo-wrap { height: 120px; width: 250px; } /* Strictly sized */
+.nav-logo-wrap { height: 120px; width: 250px; } 
 .nav-logo { height: 100%; width: 100%; object-fit: contain; }
 
 .nav-links a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; margin-left: 20px; }
@@ -52,19 +52,19 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.hero-logo-container { width: 100px; height: 100px; } /* Strictly sized */
+.hero-logo-container { width: 100px; height: 100px; }
 .hero-logo-small { width: 100%; height: 100%; object-fit: contain; }
 
 .status-badge { border-left: 3px solid var(--clay); padding-left: 20px; text-align: left; }
 .status-open { border-left-color: var(--sage); }
 
-#status-text { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--clay); }
+#status-text { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--clay); }
 .status-open #status-text { color: var(--sage); }
 
 .hero-text-wrap h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 20px; }
-#hero-subtext { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; background: rgba(255,255,255,0.6); padding: 15px; border-radius: 8px; }
+#hero-subtext { font-size: 1.15rem; max-width: 600px; margin: 0 auto 30px; background: rgba(255,255,255,0.7); padding: 18px; border-radius: 8px; font-weight: 400; line-height: 1.6; }
 
-/* --- Philosophy & Products --- */
+/* --- Sections --- */
 .philosophy { padding: 80px 10%; text-align: center; }
 .pre-title { text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; color: var(--clay); margin-bottom: 10px; font-weight: 700; }
 .divider { width: 50px; height: 1px; background: var(--clay); margin: 20px auto; }
@@ -81,11 +81,10 @@ body {
 .btn-main, .btn-buy { background: var(--ink); color: white; padding: 18px; text-decoration: none; text-transform: uppercase; font-weight: 600; text-align: center; }
 .btn-reserve { background: transparent; border: 1px solid #ddd; padding: 16px; font-weight: 600; text-transform: uppercase; cursor: pointer; }
 
-/* --- Footer (STRICT FIX) --- */
+/* --- Footer --- */
 .grand-footer { padding: 80px 8%; background: var(--white); border-top: 1px solid var(--border); }
 .footer-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-
-.footer-logo-wrap { width: 80px; height: 80px; margin-bottom: 15px; } /* Locked size */
+.footer-logo-wrap { width: 80px; height: 80px; margin-bottom: 15px; } 
 .footer-logo-img { width: 100%; height: 100%; object-fit: contain; }
 
 .footer-column h4 { text-transform: uppercase; font-size: 0.7rem; color: var(--clay); margin-bottom: 20px; }
